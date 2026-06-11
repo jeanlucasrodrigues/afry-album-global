@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NTE42BM1YW"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-NTE42BM1YW");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AFRY Fan Zone</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+  </head>
+  <body>
+    <div class="header-container">
+      <img src="AFRY_logo.png" class="page-logo" alt="AFRY Logo" />
+      <span class="bola"></span>
+      <h1>AFRY FAN ZONE</h1>
+    </div>
+
+    <div class="main-container">
+      <div class="left-panel">
+        <div
+          id="etapa1"
+          style="display: flex; flex-direction: column; gap: 20px; width: 100%"
+        >
+          <div class="controls">
+            <div>
+              <label for="imageUpload">Your Photo</label>
+              <input type="file" id="imageUpload" accept="image/*" />
+              <small
+                style="
+                  color: #64748b;
+                  font-size: 0.8rem;
+                  display: block;
+                  margin-top: 6px;
+                  font-weight: 500;
+                "
+              >
+                After uploading, click and drag the photo to adjust.
+              </small>
+            </div>
+
+            <div>
+              <label for="zoomRange">Zoom Adjustment</label>
+              <input
+                type="range"
+                id="zoomRange"
+                min="0.5"
+                max="3"
+                step="0.1"
+                value="1"
+              />
+            </div>
+
+            <div>
+              <label for="nameInput">Name on Sticker</label>
+              <input
+                type="text"
+                id="nameInput"
+                placeholder="Ex: JULIANA DOS SANTOS"
+                maxlength="25"
+              />
+            </div>
+
+            <div>
+              <label for="countrySelect">Country</label>
+              <select id="countrySelect">
+                <option value="" selected disabled>Select your country</option>
+                <option value="ar">Argentina</option>
+                <option value="at">Austria</option>
+                <option value="br">Brazil</option>
+                <option value="cl">Chile</option>
+                <option value="cn">China</option>
+                <option value="co">Colombia</option>
+                <option value="dk">Denmark</option>
+                <option value="fi">Finland</option>
+                <option value="fr">France</option>
+                <option value="de">Germany</option>
+                <option value="in">India</option>
+                <option value="it">Italy</option>
+                <option value="mx">Mexico</option>
+                <option value="no">Norway</option>
+                <option value="pe">Peru</option>
+                <option value="es">Spain</option>
+                <option value="se">Sweden</option>
+                <option value="ch">Switzerland</option>
+                <option value="gb">United Kingdom</option>
+                <option value="us">United States</option>
+              </select>
+            </div>
+
+            <!-- CHECKBOX DE BANDEIRA REMOVIDO COMPLETAMENTE -->
+
+            <hr
+              style="
+                width: 100%;
+                border: 0;
+                border-top: 1px solid var(--gray-border);
+                margin: 15px 0;
+              "
+            />
+
+            <div
+              style="
+                background: transparent;
+                padding: 5px 0;
+                text-align: center;
+              "
+            >
+              <h4 style="margin: 0 0 4px 0; color: #000000; font-size: 1.05rem">
+                Ready to join the album?
+              </h4>
+              <p
+                style="
+                  margin: 0 0 15px 0;
+                  font-size: 0.85rem;
+                  color: #64748b;
+                  line-height: 1.4;
+                "
+              >
+                Submit your photo and join our official Corporate Album.
+              </p>
+              <!-- ATUALIZADO: Usando a classe CSS para fazer o efeito de preenchimento gradual de cinza -->
+              <button
+                type="button"
+                class="btn-send-album-custom"
+                onclick="mostrarEtapa2()"
+              >
+                Send to Album
+              </button>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button class="btn-download" onclick="gerarImagem('baixar')">
+              Download
+            </button>
+            <button class="btn-print" onclick="gerarImagem('imprimir')">
+              Print
+            </button>
+            <button class="btn-share" onclick="gerarImagem('compartilhar')">
+              Share
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="etapa2"
+          style="display: none; flex-direction: column; gap: 20px; width: 100%"
+        >
+          <div class="controls">
+            <button onclick="mostrarEtapa1()" class="btn-voltar">
+              Back to editing
+            </button>
+
+            <h3 style="margin: 0 0 15px 0; color: #000000">
+              Submit your Sticker
+            </h3>
+
+            <div>
+              <label for="nomeAfry">Full Name</label>
+              <input
+                type="text"
+                id="nomeAfry"
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div>
+              <label for="emailAfry">Corporate E-mail</label>
+              <input
+                type="text"
+                id="emailAfry"
+                placeholder="Your AFRY e-mail"
+              />
+            </div>
+
+            <div style="margin-top: 10px">
+              <label style="font-size: 0.85rem; margin-bottom: 8px"
+                >Consent *</label
+              >
+              <p
+                style="
+                  font-size: 0.75rem;
+                  color: #64748b;
+                  margin: 0 0 10px 0;
+                  line-height: 1.4;
+                "
+              >
+                I declare that I give my express consent to use the information
+                provided in this form, including, but not limited to, display on
+                AFRY corporate TVs.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 8px">
+                <label
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    text-transform: none;
+                    font-weight: normal;
+                    font-size: 0.85rem;
+                    cursor: pointer;
+                  "
+                >
+                  <input
+                    type="radio"
+                    name="anuencia"
+                    value="sim"
+                    style="width: 18px; height: 18px; margin: 0"
+                  />
+                  I agree and confirm my consent
+                </label>
+                <label
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    text-transform: none;
+                    font-weight: normal;
+                    font-size: 0.85rem;
+                    cursor: pointer;
+                  "
+                >
+                  <input
+                    type="radio"
+                    name="anuencia"
+                    value="nao"
+                    style="width: 18px; height: 18px; margin: 0"
+                  />
+                  I do not agree and do not confirm my consent
+                </label>
+              </div>
+            </div>
+
+            <div style="margin-top: 10px">
+              <label style="font-size: 0.85rem; margin-bottom: 8px"
+                >Image Rights *</label
+              >
+              <div style="display: flex; flex-direction: column; gap: 8px">
+                <label
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    text-transform: none;
+                    font-weight: normal;
+                    font-size: 0.85rem;
+                    cursor: pointer;
+                  "
+                >
+                  <input
+                    type="radio"
+                    name="autoria"
+                    value="sim"
+                    style="width: 18px; height: 18px; margin: 0"
+                  />
+                  I confirm that the submitted photo is my own or I hold the
+                  rights to use it.
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn-share" onclick="enviarParaServidor()">
+            Confirm Submission
+          </button>
+          <button class="btn-download" onclick="gerarImagem('baixar')">
+            Download
+          </button>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="preview-wrapper" id="previewArea">
+          <div class="photo-mask" id="photoMask">
+            <div class="mask-placeholder" id="maskPlaceholder">
+              Your photo here
+            </div>
+            <img
+              id="userPhoto"
+              class="user-photo"
+              src=""
+              style="display: none"
+            />
+          </div>
+          <div
+            id="templateOverlay"
+            class="template-overlay"
+            style="background-image: url(&quot;template.png&quot;)"
+          ></div>
+          <div id="nomeDisplay" class="nome-display"></div>
+          <div id="paisDisplay" class="pais-display"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Powered by <a href="http://www.trabuka.com" target="_blank">Trabuka</a>
+    </footer>
+
+    <canvas id="renderCanvas" width="1080" height="1080"></canvas>
+
+    <script>
+      const MASK_LEFT = 27;
+      const MASK_TOP = 22;
+      const MASK_WIDTH = 51;
+      const MASK_HEIGHT = 61;
+      const MASK_RADIUS = 25;
+
+      const root = document.documentElement;
+      root.style.setProperty("--mask-left", MASK_LEFT + "%");
+      root.style.setProperty("--mask-top", MASK_TOP + "%");
+      root.style.setProperty("--mask-width", MASK_WIDTH + "%");
+      root.style.setProperty("--mask-height", MASK_HEIGHT + "%");
+      root.style.setProperty("--mask-radius-css", "12px");
+
+      const templateOverlay = document.getElementById("templateOverlay");
+      const imageUpload = document.getElementById("imageUpload");
+      const userPhoto = document.getElementById("userPhoto");
+      const maskPlaceholder = document.getElementById("maskPlaceholder");
+      const zoomRange = document.getElementById("zoomRange");
+      const nameInput = document.getElementById("nameInput");
+      const countrySelect = document.getElementById("countrySelect");
+
+      const nomeDisplay = document.getElementById("nomeDisplay");
+      const paisDisplay = document.getElementById("paisDisplay");
+      const previewArea = document.getElementById("previewArea");
+      const canvas = document.getElementById("renderCanvas");
+      const ctx = canvas.getContext("2d");
+
+      let isDragging = false;
+      let startX, startY;
+      let imgX = 0,
+        imgY = 0;
+      let currentScale = 1;
+      let baseScale = 1;
+
+      nameInput.addEventListener("input", (e) => {
+        nomeDisplay.textContent = e.target.value;
+      });
+
+      countrySelect.addEventListener("change", (e) => {
+        const countryName = e.target.options[e.target.selectedIndex].text;
+        paisDisplay.textContent = countryName;
+      });
+
+      imageUpload.addEventListener("change", (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            userPhoto.onload = function () {
+              maskPlaceholder.style.display = "none";
+              userPhoto.style.display = "block";
+
+              const maskElement = document.getElementById("photoMask");
+              const maskRect = maskElement.getBoundingClientRect();
+
+              const scaleX = maskRect.width / userPhoto.naturalWidth;
+              const scaleY = maskRect.height / userPhoto.naturalHeight;
+              baseScale = Math.max(scaleX, scaleY);
+
+              imgX = 0;
+              imgY = 0;
+              currentScale = 1;
+              zoomRange.value = 1;
+              updatePhotoTransform();
+            };
+            userPhoto.src = event.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      zoomRange.addEventListener("input", (e) => {
+        currentScale = e.target.value;
+        updatePhotoTransform();
+      });
+
+      function updatePhotoTransform() {
+        const totalScale = baseScale * currentScale;
+        userPhoto.style.transform = `translate(${imgX}px, ${imgY}px) translate(-50%, -50%) scale(${totalScale})`;
+      }
+
+      const startDrag = (clientX, clientY) => {
+        if (!userPhoto.src) return;
+        isDragging = true;
+        startX = clientX - imgX;
+        startY = clientY - imgY;
+      };
+
+      const moveDrag = (clientX, clientY) => {
+        if (!isDragging) return;
+        imgX = clientX - startX;
+        imgY = clientY - startY;
+        updatePhotoTransform();
+      };
+
+      const endDrag = () => {
+        isDragging = false;
+      };
+
+      previewArea.addEventListener("mousedown", (e) =>
+        startDrag(e.clientX, e.clientY),
+      );
+      window.addEventListener("mousemove", (e) =>
+        moveDrag(e.clientX, e.clientY),
+      );
+      window.addEventListener("mouseup", endDrag);
+
+      previewArea.addEventListener("touchstart", (e) => {
+        const touch = e.touches[0];
+        startDrag(touch.clientX, touch.clientY);
+      });
+      window.addEventListener(
+        "touchmove",
+        (e) => {
+          if (isDragging) e.preventDefault();
+          const touch = e.touches[0];
+          moveDrag(touch.clientX, touch.clientY);
+        },
+        { passive: false },
+      );
+      window.addEventListener("touchend", endDrag);
+
+      function drawRoundedRect(context, x, y, w, h, r) {
+        context.beginPath();
+        context.moveTo(x + r, y);
+        context.lineTo(x + w - r, y);
+        context.quadraticCurveTo(x + w, y, x + w, y + r);
+        context.lineTo(x + w, y + h - r);
+        context.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        context.lineTo(x + r, y + h);
+        context.quadraticCurveTo(x, y + h, x, y + h - r);
+        context.lineTo(x, y + r);
+        context.quadraticCurveTo(x, y, x + r, y);
+        context.closePath();
+      }
+
+      function gerarImagem(acao) {
+        if (!userPhoto.src || userPhoto.src === window.location.href) {
+          alert("Please upload a photo first!");
+          return;
+        }
+
+        const isoCode = countrySelect.value;
+
+        // Motor gráfico limpo: carrega apenas 1 imagem fixa (template.png)
+        let imagensParaCarregar = 1;
+        let imagensCarregadas = 0;
+
+        const conferirCarregamento = () => {
+          imagensCarregadas++;
+          if (imagensCarregadas === imagensParaCarregar) {
+            document.fonts.ready.then(executarDesenho);
+          }
+        };
+
+        const templateImg = new Image();
+        templateImg.crossOrigin = "anonymous";
+        templateImg.onload = conferirCarregamento;
+        templateImg.onerror = conferirCarregamento;
+        templateImg.src = "template.png";
+
+        const executarDesenho = () => {
+          try {
+            canvas.width = 1080;
+            canvas.height = 1080;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const canvasMaskX = 1080 * (MASK_LEFT / 100);
+            const canvasMaskY = 1080 * (MASK_TOP / 100);
+            const canvasMaskW = 1080 * (MASK_WIDTH / 100);
+            const canvasMaskH = 1080 * (MASK_HEIGHT / 100);
+
+            ctx.save();
+            drawRoundedRect(
+              ctx,
+              canvasMaskX,
+              canvasMaskY,
+              canvasMaskW,
+              canvasMaskH,
+              MASK_RADIUS,
+            );
+            ctx.clip();
+
+            const maskElement = document.getElementById("photoMask");
+            const maskRect = maskElement.getBoundingClientRect();
+            const canvasToPreviewRatio = canvasMaskW / maskRect.width;
+
+            const previewImgWidth =
+              userPhoto.naturalWidth * baseScale * currentScale;
+            const previewImgHeight =
+              userPhoto.naturalHeight * baseScale * currentScale;
+            const drawWidth = previewImgWidth * canvasToPreviewRatio;
+            const drawHeight = previewImgHeight * canvasToPreviewRatio;
+
+            const centerX = canvasMaskX + canvasMaskW / 2;
+            const centerY = canvasMaskY + canvasMaskH / 2;
+
+            const drawX = centerX + imgX * canvasToPreviewRatio - drawWidth / 2;
+            const drawY =
+              centerY + imgY * canvasToPreviewRatio - drawHeight / 2;
+
+            // 1. Desenha a foto do usuário pura na máscara
+            ctx.drawImage(userPhoto, drawX, drawY, drawWidth, drawHeight);
+
+            ctx.restore();
+            ctx.drawImage(templateImg, 0, 0, 1080, 1080);
+
+            const canvasX = 1080 * 0.5; // Centralização horizontal mantida
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+
+            // 2. Desenha o Nome (Sua altura de sucesso 0.83 mantida em Preto)
+            const nomeTexto = nameInput.value.toUpperCase();
+            if (nomeTexto) {
+              ctx.font =
+                'bold 38px "RB Campton Neue", "Arial Black", Impact, sans-serif';
+              ctx.fillStyle = "#000000";
+              ctx.fillText(nomeTexto, canvasX, 1080 * 0.83, 500);
+            }
+
+            // 3. Desenha o País (Sua altura de sucesso 0.875 mantida em Preto)
+            if (isoCode) {
+              const paisTexto =
+                countrySelect.options[
+                  countrySelect.selectedIndex
+                ].text.toUpperCase();
+              ctx.font = 'normal 22px "Segoe UI", Arial, sans-serif';
+              ctx.fillStyle = "#000000";
+              ctx.fillText(paisTexto, canvasX, 1080 * 0.875, 500);
+            }
+
+            const dataURL = canvas.toDataURL("image/png");
+            const nomeArquivo =
+              "sticker_" + (nameInput.value || "global") + "_by_trabuka.png";
+
+            if (acao === "baixar") {
+              const link = document.createElement("a");
+              link.download = nomeArquivo;
+              link.href = dataURL;
+              link.click();
+            } else if (acao === "imprimir") {
+              const printWindow = window.open("", "_blank");
+              const tagStyle =
+                "<" +
+                "style>@page { size: 49mm 65mm; margin: 0; } body { margin: 0; display: flex; justify-content: center; align-items: center; background: white; } img { width: 49mm; height: 65mm; object-fit: cover; }<" +
+                "/style>";
+              const tagHead =
+                "<" +
+                "head><" +
+                "title>Print Sticker<" +
+                "/title>" +
+                tagStyle +
+                "<" +
+                "/head>";
+              const tagBody =
+                "<" +
+                "body><img src='" +
+                dataURL +
+                "' onload='window.print(); window.setTimeout(function(){window.close();}, 500);' /><" +
+                "/body>";
+              printWindow.document.write(
+                "<" + "html>" + tagHead + tagBody + "<" + "/html>",
+              );
+              printWindow.document.close();
+            } else if (acao === "compartilhar") {
+              canvas.toBlob(async (blob) => {
+                const file = new File([blob], nomeArquivo, {
+                  type: "image/png",
+                });
+                if (
+                  navigator.share &&
+                  navigator.canShare &&
+                  navigator.canShare({ files: [file] })
+                ) {
+                  try {
+                    await navigator.share({
+                      title: "My AFRY Sticker!",
+                      text: "Road to the Cup",
+                      files: [file],
+                    });
+                  } catch (err) {
+                    console.log("Share cancelled or failed", err);
+                  }
+                } else {
+                  alert(
+                    "Your browser does not support direct sharing. The image will be downloaded for you to send manually!",
+                  );
+                  const link = document.createElement("a");
+                  link.download = nomeArquivo;
+                  link.href = dataURL;
+                  link.click();
+                }
+              }, "image/png");
+            } else if (acao === "enviar_banco") {
+              const nomeAfry = document.getElementById("nomeAfry").value;
+              const emailAfry = document.getElementById("emailAfry").value;
+              const paisAfry =
+                countrySelect.options[countrySelect.selectedIndex].text;
+              const btnEnviar = document.querySelector("#etapa2 .btn-share");
+
+              canvas.toBlob((blob) => {
+                const formData = new FormData();
+                formData.append("nome", nomeAfry);
+                formData.append("email", emailAfry);
+                formData.append("pais", paisAfry);
+                formData.append("imagem", blob, "sticker.png");
+
+                fetch("salvar.php", {
+                  method: "POST",
+                  body: formData,
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    if (data.sucesso) {
+                      alert(
+                        "Success! " +
+                          nomeAfry +
+                          ", your sticker has been sent to our official album.",
+                      );
+                      window.location.reload();
+                    } else {
+                      alert(" An error occurred: " + data.mensagem);
+                      btnEnviar.innerHTML = "Confirm Submission";
+                      btnEnviar.disabled = false;
+                    }
+                  })
+                  .catch((error) => {
+                    console.error("Request error:", error);
+                    alert(
+                      " Connection error while trying to send the sticker.",
+                    );
+                    btnEnviar.innerHTML = "Confirm Submission";
+                    btnEnviar.disabled = false;
+                  });
+              }, "image/png");
+            }
+          } catch (err) {
+            alert(
+              "Browser Security Block!\n\nTechnical error detail: " +
+                err.message,
+            );
+            console.error(err);
+          }
+        };
+
+        conferirCarregamento();
+      }
+
+      function mostrarEtapa2() {
+        if (!userPhoto.src || userPhoto.src === window.location.href) {
+          alert(
+            "Please upload your photo and create your sticker before sending it to the album!",
+          );
+          return;
+        }
+        if (!countrySelect.value) {
+          alert("Please select your Country!");
+          return;
+        }
+        document.getElementById("etapa1").style.display = "none";
+        document.getElementById("etapa2").style.display = "flex";
+      }
+
+      function mostrarEtapa1() {
+        document.getElementById("etapa2").style.display = "none";
+        document.getElementById("etapa1").style.display = "flex";
+      }
+
+      function enviarParaServidor() {
+        const nome = document.getElementById("nomeAfry").value;
+        const email = document.getElementById("emailAfry").value;
+        const anuencia = document.querySelector(
+          'input[name="anuencia"]:checked',
+        );
+        const autoria = document.querySelector('input[name="autoria"]:checked');
+
+        if (!nome || !email) {
+          alert("Please fill in your full name and e-mail.");
+          return;
+        }
+        if (!anuencia) {
+          alert("Please select an option in the Consent section.");
+          return;
+        }
+        if (anuencia.value === "nao") {
+          alert(
+            "Attention: You must agree to the consent terms to submit your photo.",
+          );
+          return;
+        }
+        if (!autoria) {
+          alert("Please confirm that the submitted photo is yours.");
+          return;
+        }
+
+        const btnEnviar = document.querySelector("#etapa2 .btn-share");
+        btnEnviar.innerHTML = "⏳ Sending...";
+        btnEnviar.disabled = true;
+
+        gerarImagem("enviar_banco");
+      }
+    </script>
+  </body>
+</html>
