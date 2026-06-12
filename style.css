@@ -107,7 +107,7 @@ h1 {
   -webkit-backdrop-filter: blur(12px);
   padding: 30px;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgb(246, 246, 246);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -133,7 +133,7 @@ select {
   box-sizing: border-box;
   font-family: inherit;
   font-size: 1rem;
-  background: #f8fafc;
+  background: #ffffff;
   color: #1e293b;
   transition: all 0.3s ease;
 }
@@ -152,7 +152,7 @@ input[type="file"] {
   border-radius: 4px;
   width: 100%;
   box-sizing: border-box;
-  background: #f8fafc;
+  background: #ffffff;
   cursor: pointer;
   transition: all 0.3s ease;
   color: #64748b;
@@ -177,7 +177,7 @@ input[type="file"]::file-selector-button {
 }
 
 input[type="file"]::file-selector-button:hover {
-  background: #cbd5e1;
+  background: #ffffff;
 }
 
 input[type="range"] {
@@ -194,7 +194,7 @@ input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 6px;
   cursor: pointer;
-  background: #cbd5e1;
+  background: #ffffff;
   border-radius: 4px;
 }
 
@@ -325,6 +325,7 @@ button:active {
 }
 
 .btn-send-album-custom {
+  border: none;
   width: 100%;
   padding: 14px;
   border-radius: 4px;
